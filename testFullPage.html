@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testFullPage</title>
+    <!-- fullpage.min.css 必要 -->
+    <!-- <link rel="stylesheet" href="dist/fullpage.css"> -->
+    <link rel="stylesheet" href="dist/fullpage.css">
+    <!-- ---可套用官方css 幫你調好距離--- -->
+    <link rel="stylesheet" href="css/examples.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+</head>
+
+<body>
+    <ul id="menu">
+        <li data-menuanchor="page1" class="active"><a href="#firstPage">第一頁</a></li>
+        <li data-menuanchor="page2"><a href="#secondPage">第二頁</a></li>
+        <li data-menuanchor="page3"><a href="#thirdPage">第三頁</a></li>
+        <li data-menuanchor="page4"><a href="#fourth">第四頁</a></li>
+    </ul>
+    <!-- --fullpage-- 神區塊一定要 id="fullpage"-->
+    <div id="fullpage">
+        <!-- --class="section"-- 父區塊 一個頁面的區塊 -->
+        <h1 class="section s1Page">first</h1>
+
+        <!-- --fp-auto-height-- -->
+        <!-- 根據區塊內容自動設定大小 -->
+        <div class="section fp-auto-height ">
+            <div>
+                <h1>Test fp-auto-height</h1>
+            </div>
+
+        </div>
+
+        <!-- 加上 active 可作為 起始點 -->
+        <div class="section active s2Page">
+            <h1>Test div h1</h1>
+        </div>
+
+        <!-- --class="slide"--變成滾動效果-->
+        <div class="section s3SlidePage">
+            <!-- data-anchor="slide1" 設定anchor 網址後方編號-->
+            <h1>Test Slide</h1>
+            <div class="imgBox">
+                <div class="slide" data-anchor="slide1"><img src="img/bg1.jpg" alt="img/bg1.jpg"></div>
+                <div class="slide" data-anchor="slide2"><img src="img/bg2.jpg" alt="img/bg1.jpg"></div>
+                <div class="slide" data-anchor="slide3"><img src="img/bg3.jpg" alt="img/bg1.jpg"></div>
+                <div class="slide" data-anchor="slide4"><img src="img/bg4.jpg" alt="img/bg1.jpg"></div>    
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <!-- --必要--也可從官方 github  Optional use of CDN 下載cdn帶入-->
+    <script src="dist/fullpage.js"></script>
+    <!-- <script src="dist/fullpage.js"></script> -->
+
+    <!-- --要自己打-- -->
+    <script>
+        new fullpage('#fullpage', {
+            //---設定區塊---
+
+            //自動滾動
+            autoScrolling: true,
+            scrollHorizontally: true,
+
+            // 設定section 背景顏色 按照順序
+            sectionsColor: ['#682925', 'black', '#682925', '#9dd7da'],
+
+            //頁面滾動速度
+            // scrollingSpeed: 3000,
+            scrollingSpeed: 700,
+
+            //設定anchor 網址後方編號
+            anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourth'],
+            //Navigation 顯示小圓點導航藍
+            // 預設為false
+            'navigation': true, 
+            //添加小圓點導航欄 文字
+            navigationTooltips:["firstPage","secondPage","thirdPage","fourthPage"],
+            //導航欄 顯示目前所在的頁面名稱
+            showActiveTooltip:true,
+            //設定位子 right left
+            navigationPosition:"right",
+            //隱藏slide 箭頭
+            controlArrows:false,
+            //讓slide 有拖動效果
+            slidesNavigation:true,
+
+            
+        });
+
+
+    </script>
+</body>
+
+</html>
